@@ -1,10 +1,10 @@
-Bcoin on Docker
+Bcash on Docker
 =====
 
-Start up a bcoin node quickly using Docker.
-Pulls latest bcoin version from github and starts full node.
+Start up a bcash node quickly using Docker.
+Pulls latest bcash version from github and starts full node.
 
-By default, persists data in user home directory at `~/.bcoin`.
+By default, persists data in user home directory at `~/.bcash`.
 
 How To Use
 ----
@@ -13,13 +13,13 @@ Copy sample configurations to `secrets/` directory:
 >Important: Be sure to keep API secrets safe.
 ```
 $ mkdir -p secrets
-$ cp bcoin.example.conf secrets/bcoin.conf
+$ cp bcash.example.conf secrets/bcash.conf
 $ cp wallet.example.conf secrets/wallet.conf
 ```
 
-Create `bcoin` network:
+Create `bcash` network:
 ```
-$ docker network create bcoin
+$ docker network create bcash
 ```
 
 Create `nginx-proxy` network:
@@ -29,12 +29,12 @@ $ docker network create nginx-proxy
 
 Quick run, node only:
 ```
-$ docker-compose up -d bcoin
+$ docker-compose up -d bcash
 ```
 
-Update to latest bcoin version:
+Update to latest bcash version:
 ```
-$ docker-compose build --pull bcoin
+$ docker-compose build --pull bcash
 ```
 
 HTTPS
@@ -47,7 +47,7 @@ See https://github.com/jwilder/nginx-proxy for more options.
 
 # Wallet HTTP
 Note that Wallet and Node API servers are on separate ports.
-With the default `docker-compose.yml` configuration, Wallet API is accessible via `bcoin.yourdomain.org:8334/wallet`, while node endpoints are accessed through default HTTP/HTTPS ports.
+With the default `docker-compose.yml` configuration, Wallet API is accessible via `bcash.yourdomain.org:8334/wallet`, while node endpoints are accessed through default HTTP/HTTPS ports.
 
 Provided is a simple example of an nginx proxy to allow wallet API to be accessible
 on a separate domain, in order to make it unnecessary to specify wallet port.
@@ -56,7 +56,7 @@ See `docker-compose.wallet.yml`. (Not required to actually use wallet API)
 
 # Building
 
-By default, docker-compose will use image pulled from `purse/bcoin:latest`,
+By default, docker-compose will use image pulled from `petejkim/bcash:latest`,
 but you can build one yourself.
 
 Latest is hard coded into Makefile and will need updates overtime,
